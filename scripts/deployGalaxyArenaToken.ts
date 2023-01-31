@@ -1,12 +1,12 @@
 import { ethers, upgrades } from 'hardhat';
 
-const tokenName = "";
+const tokenName = ""; 
 const tokenSymbol = "";
-const totalSupply = 0;
-const feeCollector = "";
-const defaultFee = 0;
-const precision = 0;
-const multiSig = "";
+const totalSupply = 0; //in wei (we default to 18 decimals)
+const feeCollector = "";  //address for fee collector
+const defaultFee = 0; // in the precision stated below, e.g. for 10000 precision, a 4% tax would be 400 
+const precision = 0; // e.g. 10000
+const multiSig = ""; // the address of gnosis multi-sig to act as owner of proxy admin and token, and to receive the total supply.
 
 async function main() {
     const galaxyArenaTokenFactory = await ethers.getContractFactory('GalaxyArenaToken');
