@@ -1,14 +1,14 @@
 import { ethers } from 'hardhat';
 
-const proxyAdminAddress = "";
-const tokenProxyAddress = "";
+const proxyAdminAddress = ""; //plug this after the running the deploy script
+const tokenProxyAddress = ""; //plug this after the running the deploy script
 
-const multiSig = "";
+const multiSig = ""; //the gnosis multisig owner
 
 async function main() {
     const admin = await ethers.getContractAt("OwnableUpgradeable", proxyAdminAddress);
     console.log("Is proxy admin owner multisig?", await admin.owner() === multiSig);
-
+    
     const galaxyArenaToken = await ethers.getContractAt("GalaxyArenaToken", tokenProxyAddress);
     console.log("Is GalaxyArena token admin multisig?", await galaxyArenaToken.owner() === multiSig);
     console.log("Token attributes:");
